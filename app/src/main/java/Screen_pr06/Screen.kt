@@ -1,4 +1,4 @@
-package Screen_PR06
+package Screen
 
 import Components_pr06.Analyzes
 import Components_pr06.Finish
