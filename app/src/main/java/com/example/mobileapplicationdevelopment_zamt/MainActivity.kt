@@ -36,7 +36,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
         modifier = modifier,
-        style = MyTheme.typography.headingBlack96,
+        style = MyTheme.typography.headingBlack128,
         color = MyTheme.colors.primary
     )
 }

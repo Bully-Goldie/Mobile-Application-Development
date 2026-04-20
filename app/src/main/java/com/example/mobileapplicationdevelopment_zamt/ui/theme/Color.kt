@@ -15,6 +15,8 @@ val Pink40 = Color(0xFF7D5260)
 //pr04
 val AccentColor = Color(0xFF00B712)
 val colorOnboardDescription = Color(0xFF939396)
+
+val TextColor = Color(0xFF57A9FF)
 val colorBtn = Color(0xFF1A6FEE)
 val notColorBtn = Color(0xFFC9D4FB)
 val textF = Color(0xFFF5F5F9)

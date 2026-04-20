@@ -8,14 +8,17 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.mobileapplicationdevelopment_zamt.ui.theme.colorBtn
 
 @Composable
-fun SecondaryButton(modifier: Modifier = Modifier) {
+fun SecondaryButton(modifier: Modifier = Modifier, text: String, onClick: () -> Unit) {
     OutlinedButton(
-        onClick = { },
+        onClick = onClick,
         border = BorderStroke(1.dp, colorBtn),
         modifier = modifier
             .width(335.dp)
@@ -23,11 +26,13 @@ fun SecondaryButton(modifier: Modifier = Modifier) {
         shape = RoundedCornerShape(10.dp)
     ) {
         Text(
-            text = "Еще одна кнопка",
+            text = text,
             color = colorBtn,
-            modifier = modifier
-                .width(119.dp)
-                .height(20.dp)
+            fontSize = 15.sp,
+            fontWeight = FontWeight.W400,
+            letterSpacing = 0.sp,
+            lineHeight = 20.sp,
+            textAlign = TextAlign.Center
         )
     }
 }
@@ -35,5 +40,5 @@ fun SecondaryButton(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun SecondaryButtonPreview() {
-    SecondaryButton()
+    SecondaryButton(text = "Еще одна кнопка", onClick = {})
 }
