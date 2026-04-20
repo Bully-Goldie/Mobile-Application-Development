@@ -18,6 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -26,7 +27,7 @@ import com.example.mobileapplicationdevelopment_zamt.ui.theme.InputBG
 import com.example.mobileapplicationdevelopment_zamt.ui.theme.InputS
 
 @Composable
-fun Input(modifier: Modifier = Modifier) {
+fun Input(modifier: Modifier = Modifier, label: String, placeholderText: String, value: String, onValueChange: (String) -> Unit) {
     var emailValue by remember { mutableStateOf("") }
     Box(
         modifier = Modifier
@@ -35,16 +36,16 @@ fun Input(modifier: Modifier = Modifier) {
 
     ) {
         Text(
-            text = "Вход по E-mail",
-            fontWeight = FontWeight.Normal,
+            text = label,
             fontSize = 14.sp,
             color = EmailText,
-            modifier = Modifier
-                .align(Alignment.TopStart)
+            fontWeight = FontWeight.W400,
+            lineHeight = 20.sp,
+            letterSpacing = 0.sp
         )
         OutlinedTextField(
-            value = emailValue,
-            onValueChange = { emailValue = it },
+            value = value,
+            onValueChange = onValueChange,
             colors = OutlinedTextFieldDefaults.colors(
                 focusedContainerColor = InputBG,
                 unfocusedContainerColor = InputBG,
@@ -53,9 +54,11 @@ fun Input(modifier: Modifier = Modifier) {
             ),
             placeholder = {
                 Text(
-                    text = "example@mail.ru",
+                    text = placeholderText,
                     fontSize = 15.sp,
-                    lineHeight = 20.sp
+                    fontWeight = FontWeight.W400,
+                    lineHeight = 20.sp,
+                    letterSpacing = 0.sp
                 )
             },
             shape = RoundedCornerShape(10.dp),
@@ -70,5 +73,6 @@ fun Input(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun InputPrev() {
-    Input()
+    val text = remember { mutableStateOf("") }
+    Input(label = "Вход по E-mail", placeholderText = "example@mail.ru", value = text.value, onValueChange = { text.value = it })
 }

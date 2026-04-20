@@ -59,7 +59,9 @@ fun TextButton(modifier: Modifier = Modifier, text: String, onClick: () -> Unit)
         fontSize = 20.sp,
         fontWeight = FontWeight.W600,
         letterSpacing = 0.sp,
-        lineHeight = 20.sp
+        lineHeight = 20.sp,
+        modifier = Modifier
+            .clickable{onClick()}
     )
 }
 

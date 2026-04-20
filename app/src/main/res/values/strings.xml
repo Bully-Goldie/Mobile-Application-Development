@@ -1,11 +1,3 @@
 <resources>
     <string name="app_name">MobileApplicationDevelopment_ZAMT</string>
-    <string name="Next">Далее</string>
-    <string name="Finish">Завершить</string>
-    <string name="Analyzes">Анализы</string>
-    <string name="Analyzes_2">Экспресс сбор и получение проб</string>
-    <string name="Notifications">Уведомления</string>
-    <string name="Notifications_2">Вы быстро узнаете о результатаx</string>
-    <string name="Monitoring">Мониторинг</string>
-    <string name="Monitoring_2">Наши врачи всегда наблюдают за вашими показателями здоровья</string>
 </resources>

@@ -11,6 +11,8 @@ import Components_pr05.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 
@@ -25,17 +27,18 @@ fun SingAppScreen(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Spacer(modifier = Modifier.height(60.dp))
-        Title()
+        Title(helloText = "Добро пожаловать!", refText = "Войдите, чтобы пользоваться функциями приложения")
 
         Spacer(modifier = Modifier.weight(1f))
 
-        Input()
+        val text = remember { mutableStateOf("") }
+        Input(label = "Вход по E-mail", placeholderText = "example@mail.ru", value = text.value, onValueChange = { text.value = it })
         Spacer(modifier = Modifier.height(16.dp))
-        Button()
+        Button(text = "Далее", onClick = {}, enabled = true)
 
         Spacer(modifier = Modifier.weight(1f))
 
-        Yandex()
+        Yandex(text = "Или войдите с помощью", btnText = "Войти с Яндекс", onClick = {})
         Spacer(modifier = Modifier.height(20.dp))
     }
 }

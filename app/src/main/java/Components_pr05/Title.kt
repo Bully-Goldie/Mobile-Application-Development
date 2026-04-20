@@ -16,28 +16,31 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun Title(modifier: Modifier = Modifier) {
+fun Title(modifier: Modifier = Modifier, helloText: String, refText: String) {
     Box(
         modifier = Modifier
             .width(335.dp)
             .height(91.dp)
-            .background(Color.White)
 
     ) {
         Text(
-            text = "Добро пожаловать!",
-            fontWeight = FontWeight.Bold,
+            text = helloText,
             fontSize = 24.sp,
             modifier = Modifier
-                .align(Alignment.TopCenter)
+                .align(Alignment.TopCenter),
+            fontWeight = FontWeight.W700,
+            lineHeight = 28.sp,
+            letterSpacing = 0.33.sp
 
         )
 
         Text(
-            text = "Войдите, чтобы пользоваться функциями приложения",
-            fontWeight = FontWeight.Normal,
+            text = refText,
             fontSize = 15.sp,
-            modifier = Modifier.align(Alignment.BottomEnd)
+            modifier = Modifier.align(Alignment.BottomEnd),
+            fontWeight = FontWeight.W400,
+            lineHeight = 20.sp,
+            letterSpacing = 0.sp
         )
     }
 }
@@ -45,5 +48,5 @@ fun Title(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun TitlePrev() {
-    Title()
+    Title(helloText = "Добро пожаловать!", refText = "Войдите, чтобы пользоваться функциями приложения")
 }

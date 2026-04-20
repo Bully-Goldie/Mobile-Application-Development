@@ -64,9 +64,9 @@ fun Screen(modifier: Modifier = Modifier) {
             Row {
                 Spacer(modifier = Modifier.padding(10.dp))
                 when (indexIMG) {
-                    0 -> Next(modifier = Modifier.clickable{indexIMG = (indexIMG + 1) % images.size})
-                    1 -> Next(modifier = Modifier.clickable{indexIMG = (indexIMG + 1) % images.size})
-                    2 -> Finish(modifier = Modifier.clickable{indexIMG = (indexIMG + 1) % images.size})
+                    0 -> Next(text = "Далее", onClick = {indexIMG = (indexIMG + 1) % images.size})
+                    1 -> Next(text = "Далее", onClick = {indexIMG = (indexIMG + 1) % images.size})
+                    2 -> Finish(text = "Завершить", onClick = {indexIMG = (indexIMG + 1) % images.size})
                 }
             }
             Image(
@@ -79,9 +79,9 @@ fun Screen(modifier: Modifier = Modifier) {
         Spacer(modifier = Modifier.weight(1f))
 
         when (indexIMG) {
-            0 -> Analyzes()
-            1 -> Notifications()
-            2 -> Monitoring()
+            0 -> Analyzes(mainText = "Анализы", lastText = "Экспресс сбор и получение проб")
+            1 -> Notifications(mainText = "Уведомления", lastText = "Вы быстро узнаете о результатаx")
+            2 -> Monitoring(mainText = "Мониторинг", lastText = "Наши врачи всегда наблюдают за вашими показателями здоровья")
         }
 
         Spacer(modifier = Modifier.height(30.dp))

@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -21,24 +22,26 @@ import com.example.mobileapplicationdevelopment_zamt.ui.theme.TextYandex
 import com.example.mobileapplicationdevelopment_zamt.ui.theme.ButtonTrue
 
 @Composable
-fun Yandex(modifier: Modifier = Modifier) {
+fun Yandex(modifier: Modifier = Modifier, btnText: String, text: String, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .width(335.dp)
             .height(172.dp)
-            .background(Color.White)
 
     ) {
         Text(
-            text = "Или войдите с помощью",
-            fontWeight = FontWeight.Normal,
+            text = text,
             fontSize = 15.sp,
             modifier = Modifier
                 .align(Alignment.Center),
-            color = TextYandex
+            color = TextYandex,
+            fontWeight = FontWeight.W400,
+            lineHeight = 20.sp,
+            letterSpacing = 0.sp,
+            textAlign = TextAlign.Center
         )
         Button(
-            onClick = {},
+            onClick = onClick,
             modifier = Modifier
                 .width(335.dp)
                 .height(56.dp)
@@ -51,9 +54,11 @@ fun Yandex(modifier: Modifier = Modifier) {
             )
         ) {
             Text(
-                text = "Войти с Яндекс",
+                text = btnText,
                 fontSize = 17.sp,
-                fontWeight = FontWeight.Normal
+                fontWeight = FontWeight.W400,
+                lineHeight = 24.sp,
+                letterSpacing = 0.sp
             )
         }
     }
@@ -62,5 +67,5 @@ fun Yandex(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun YandexPrev() {
-    Yandex()
+    Yandex(text = "Или войдите с помощью", btnText = "Войти с Яндекс", onClick = {})
 }

@@ -15,6 +15,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.TransformedText
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -23,19 +26,19 @@ import com.example.mobileapplicationdevelopment_zamt.ui.theme.plaseH
 import com.example.mobileapplicationdevelopment_zamt.ui.theme.textF
 
 @Composable
-fun TextInput(modifier: Modifier = Modifier) {
-    var text by remember { mutableStateOf("") }
+fun TextInput(modifier: Modifier = Modifier, text: String, value: String, onValueChange: (String) -> Unit) {
+    var textI by remember { mutableStateOf("") }
 
     OutlinedTextField(
-        value = text,
-        onValueChange = { text = it },
+        value = value,
+        onValueChange = onValueChange,
         placeholder = { Text(
-            text = "Поле для ввода с подсказкой",
+            text = text,
             color = plaseH.copy(alpha = 0.5f),
             fontSize = 15.sp,
-            modifier = modifier
-                .width(221.dp)
-                .height(20.dp)
+            fontWeight = FontWeight.W400,
+            letterSpacing = 0.sp,
+            lineHeight = 20.sp
         )},
         colors = OutlinedTextFieldDefaults.colors(
             focusedContainerColor = textF,
@@ -52,19 +55,21 @@ fun TextInput(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun TextInputPreview() {
-    TextInput()
+    val text = remember { mutableStateOf("") }
+    TextInput(text = "Поле для ввода с подсказкой", value = text.value, onValueChange = { text.value = it })
 }
 
 @Composable
-fun TextFieldInf(modifier: Modifier = Modifier) {
-    var text by remember { mutableStateOf("Поле с введенной информацией") }
-
+fun TextFieldInf(modifier: Modifier = Modifier, value: String, onValueChange: (String) -> Unit) {
     TextField(
-        value = text,
-        onValueChange = { text = it },
+        value = value,
+        onValueChange = onValueChange,
         textStyle = TextStyle(
             fontSize = 15.sp,
-            color = plaseH
+            color = plaseH,
+            fontWeight = FontWeight.W400,
+            letterSpacing = 0.sp,
+            lineHeight = 20.sp
         ),
         colors = TextFieldDefaults.colors(
             focusedContainerColor = textF
@@ -79,5 +84,6 @@ fun TextFieldInf(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun TextFieldInfPreview() {
-    TextFieldInf()
+    val text = remember { mutableStateOf("Поле с введенной информацией") }
+    TextFieldInf(value = text.value, onValueChange = { text.value = it })
 }
