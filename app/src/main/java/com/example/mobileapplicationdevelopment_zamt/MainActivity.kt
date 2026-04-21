@@ -1,18 +1,18 @@
 package com.example.mobileapplicationdevelopment_zamt
 
-import Screen.SingAppScreen
+import Screen.SignAppScreen
+import Screen_pr09.OrderScreen
+import Screen_pr09.paymentScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.mobileapplicationdevelopment_zamt.ui.theme.MyTheme
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.mobileapplicationdevelopment_zamt.ui.theme.MyTheme_pr07
 
 class MainActivity : ComponentActivity() {
@@ -20,8 +20,26 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MyTheme_pr07 {
-                SingAppScreen()
+            val navController = rememberNavController()
+            NavHost(
+                navController = navController,
+                startDestination = "auth"
+            ) {
+                composable("auth") {
+                    SignAppScreen(onNextClick = {
+                        navController.navigate("order")
+                    })
+                }
+
+                composable("order") {
+                    OrderScreen(onOrderClick = {
+                        navController.navigate("payment_success")
+                    })
+                }
+
+                composable("payment_success") {
+                    paymentScreen()
+                }
             }
         }
     }
@@ -29,7 +47,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    SingAppScreen()
+
 }
 
 @Preview(showBackground = true)

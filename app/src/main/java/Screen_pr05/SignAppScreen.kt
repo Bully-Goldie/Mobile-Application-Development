@@ -2,7 +2,6 @@ package Screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -19,7 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun SingAppScreen(modifier: Modifier = Modifier) {
+fun SignAppScreen(modifier: Modifier = Modifier, onNextClick: () -> Unit) {
     val text = remember { mutableStateOf("") }
 
     Column(
@@ -46,9 +45,7 @@ fun SingAppScreen(modifier: Modifier = Modifier) {
         Spacer(modifier = Modifier.height(16.dp))
         Button(
             text = "Далее",
-            onClick = {
-                Log.d("email_log", "Введенный email: ${text.value}")
-            },
+            onClick = onNextClick,
             enabled = true
         )
 
@@ -61,6 +58,6 @@ fun SingAppScreen(modifier: Modifier = Modifier) {
 
 @Preview
 @Composable
-private fun SingAppScreenFalsePrev() {
-    SingAppScreen()
+private fun SignAppScreenPrev() {
+    SignAppScreen(onNextClick = {})
 }

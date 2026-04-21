@@ -31,8 +31,7 @@ fun mainText(modifier: Modifier = Modifier, mainText: String, lastText: String) 
             color = green,
             fontWeight = FontWeight.W600,
             lineHeight = 20.sp,
-            letterSpacing = 0.sp,
-
+            letterSpacing = 0.sp
             )
         Text(
             text = lastText,
