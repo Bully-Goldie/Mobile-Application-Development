@@ -8,8 +8,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import Components_pr05.*
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -18,23 +20,37 @@ import androidx.compose.ui.graphics.Color
 
 @Composable
 fun SingAppScreen(modifier: Modifier = Modifier) {
+    val text = remember { mutableStateOf("") }
+
     Column(
         modifier = Modifier
-            .width(375.dp)
-            .height(812.dp)
+            .fillMaxSize()
             .background(Color.White)
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Spacer(modifier = Modifier.height(60.dp))
-        Title(helloText = "Добро пожаловать!", refText = "Войдите, чтобы пользоваться функциями приложения")
+        Title(
+            helloText = "Добро пожаловать!",
+            refText = "Войдите, чтобы пользоваться функциями приложения"
+        )
 
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.weight(0.4f))
 
-        val text = remember { mutableStateOf("") }
-        Input(label = "Вход по E-mail", placeholderText = "example@mail.ru", value = text.value, onValueChange = { text.value = it })
+
+        Input(
+            label = "Вход по E-mail",
+            placeholderText = "example@mail.ru",
+            value = text.value,
+            onValueChange = { text.value = it })
         Spacer(modifier = Modifier.height(16.dp))
-        Button(text = "Далее", onClick = {}, enabled = true)
+        Button(
+            text = "Далее",
+            onClick = {
+                Log.d("email_log", "Введенный email: ${text.value}")
+            },
+            enabled = true
+        )
 
         Spacer(modifier = Modifier.weight(1f))
 

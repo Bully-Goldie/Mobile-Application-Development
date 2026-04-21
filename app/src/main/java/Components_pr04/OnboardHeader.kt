@@ -11,8 +11,6 @@ import androidx.compose.ui.unit.sp
 import com.example.mobileapplicationdevelopment_zamt.ui.theme.AccentColor
 import com.example.mobileapplicationdevelopment_zamt.ui.theme.TextColor
 import com.example.mobileapplicationdevelopment_zamt.ui.theme.colorOnboardDescription
-import com.example.mobileapplicationdevelopment_zamt.ui.theme.textF
-import java.text.Normalizer
 
 @Composable
 fun OnboardHeader(modifier: Modifier = Modifier, text: String) {

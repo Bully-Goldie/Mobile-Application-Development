@@ -1,5 +1,6 @@
 package com.example.mobileapplicationdevelopment_zamt
 
+import Screen.SingAppScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -20,12 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyTheme_pr07 {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                SingAppScreen()
             }
         }
     }
@@ -33,12 +29,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier,
-        style = MyTheme.typography.headingBlack128,
-        color = MyTheme.colors.primary
-    )
+    SingAppScreen()
 }
 
 @Preview(showBackground = true)

@@ -1,6 +1,5 @@
 package Components_pr04
 
-import android.R
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
