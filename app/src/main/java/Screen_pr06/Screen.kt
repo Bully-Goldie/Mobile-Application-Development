@@ -1,16 +1,13 @@
 package Screen
 
-import Components_pr06.Analyzes
-import Components_pr06.Finish
-import Components_pr06.Monitoring
-import Components_pr06.Next
-import Components_pr06.Notifications
+import Components_pr06.mainText
+import Components_pr06.nextText
+import android.R.attr.text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -31,7 +28,13 @@ import androidx.compose.ui.unit.dp
 import com.example.mobileapplicationdevelopment_zamt.R
 
 @Composable
-fun Screen(modifier: Modifier = Modifier) {
+fun Screen(modifier: Modifier = Modifier,
+           buttonText: String,
+           mainText: String,
+           lastText: String
+           ) {
+    var indexIMG by remember { mutableStateOf(0) }
+
     val images = listOf(
         R.drawable.illustration,
         R.drawable.__2022_09_17__19_21_1,
@@ -48,8 +51,6 @@ fun Screen(modifier: Modifier = Modifier) {
         Modifier.size(359.dp, 269.dp)
     )
 
-    var indexIMG by remember { mutableStateOf(0) }
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -63,11 +64,9 @@ fun Screen(modifier: Modifier = Modifier) {
         ) {
             Row {
                 Spacer(modifier = Modifier.padding(10.dp))
-                when (indexIMG) {
-                    0 -> Next(text = "Далее", onClick = {indexIMG = (indexIMG + 1) % images.size})
-                    1 -> Next(text = "Далее", onClick = {indexIMG = (indexIMG + 1) % images.size})
-                    2 -> Finish(text = "Завершить", onClick = {indexIMG = (indexIMG + 1) % images.size})
-                }
+                nextText(
+                    text = buttonText,
+                    onClick = {})
             }
             Image(
                 painter = painterResource(id = R.drawable.shape),
@@ -76,13 +75,9 @@ fun Screen(modifier: Modifier = Modifier) {
             )
         }
 
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.weight(0.5f))
 
-        when (indexIMG) {
-            0 -> Analyzes(mainText = "Анализы", lastText = "Экспресс сбор и получение проб")
-            1 -> Notifications(mainText = "Уведомления", lastText = "Вы быстро узнаете о результатаx")
-            2 -> Monitoring(mainText = "Мониторинг", lastText = "Наши врачи всегда наблюдают за вашими показателями здоровья")
-        }
+        mainText(mainText = mainText, lastText = lastText)
 
         Spacer(modifier = Modifier.height(30.dp))
 
@@ -105,5 +100,9 @@ fun Screen(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun ScreenPrev() {
-    Screen()
+    Screen(
+        buttonText = "Далее",
+        mainText = "Уведомления",
+        lastText = "Вы быстро узнаете о результатах"
+    )
 }
