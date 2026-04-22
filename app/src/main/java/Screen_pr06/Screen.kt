@@ -2,7 +2,6 @@ package Screen
 
 import Components_pr06.mainText
 import Components_pr06.nextText
-import android.R.attr.text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview

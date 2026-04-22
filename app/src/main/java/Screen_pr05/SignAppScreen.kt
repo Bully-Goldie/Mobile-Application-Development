@@ -18,7 +18,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun SignAppScreen(modifier: Modifier = Modifier, onNextClick: () -> Unit) {
+fun SignAppScreen(
+    modifier: Modifier = Modifier,
+    onNextClick: () -> Unit
+) {
     val text = remember { mutableStateOf("") }
 
     Column(

@@ -30,7 +30,7 @@ fun Order(modifier: Modifier = Modifier, text: String, onClick: () -> Unit) {
             contentDescription = null,
             modifier = Modifier
                 .size(32.dp, 32.dp)
-                .clickable{onClick}
+                .clickable{onClick()}
         )
 
         Text(

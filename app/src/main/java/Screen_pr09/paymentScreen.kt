@@ -21,7 +21,11 @@ import androidx.compose.ui.unit.dp
 import com.example.mobileapplicationdevelopment_zamt.R
 
 @Composable
-fun paymentScreen(modifier: Modifier = Modifier) {
+fun paymentScreen(
+    modifier: Modifier = Modifier,
+    homeBack: () -> Unit,
+    checkOrder: () -> Unit
+) {
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -53,7 +57,7 @@ fun paymentScreen(modifier: Modifier = Modifier) {
 
         ButtonPayment(text = "Чек покупки", onClick = {}, isPrimary = false)
         Spacer(modifier = Modifier.height(14.dp))
-        ButtonPayment(text = "На главную", onClick = {}, isPrimary = true)
+        ButtonPayment(text = "На главную", onClick = homeBack, isPrimary = true)
     }
 }
 
@@ -61,5 +65,8 @@ fun paymentScreen(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun paymentScreenPrev() {
-    paymentScreen()
+    paymentScreen(
+        homeBack = {},
+        checkOrder = {}
+    )
 }

@@ -4,6 +4,7 @@ import Screen.SignAppScreen
 import Screen_pr09.OrderScreen
 import Screen_pr09.paymentScreen
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -26,19 +27,29 @@ class MainActivity : ComponentActivity() {
                 startDestination = "auth"
             ) {
                 composable("auth") {
-                    SignAppScreen(onNextClick = {
-                        navController.navigate("order")
-                    })
+                    SignAppScreen(
+                        onNextClick = {
+                            navController.navigate("order")
+                        }
+                    )
                 }
 
                 composable("order") {
-                    OrderScreen(onOrderClick = {
-                        navController.navigate("payment_success")
-                    })
+                    OrderScreen(
+                        onOrderClick = {
+                            navController.navigate("payment_success")
+                        },
+                        backClick = {
+                            navController.popBackStack()
+                        }
+                    )
                 }
 
                 composable("payment_success") {
-                    paymentScreen()
+                    paymentScreen(
+                        homeBack = {},
+                        checkOrder = {}
+                    )
                 }
             }
         }

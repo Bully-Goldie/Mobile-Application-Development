@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mobileapplicationdevelopment_zamt.R
+import com.example.mobileapplicationdevelopment_zamt.ui.theme.TextColor
 import com.example.mobileapplicationdevelopment_zamt.ui.theme.green
 import com.example.mobileapplicationdevelopment_zamt.ui.theme.grey
 
@@ -55,7 +56,7 @@ fun TextPayment(modifier: Modifier = Modifier, title: String, subtitle: String, 
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .clickable{onClick},
-            color = grey,
+            color = TextColor,
             fontWeight = FontWeight.W400,
             lineHeight = 20.sp,
             letterSpacing = 0.sp,

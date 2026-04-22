@@ -18,7 +18,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun OrderScreen(modifier: Modifier = Modifier, onOrderClick: () -> Unit) {
+fun OrderScreen(
+    modifier: Modifier = Modifier,
+    onOrderClick: () -> Unit,
+    backClick: () -> Unit
+
+) {
     val textAddress = remember { mutableStateOf("") }
     val textPhone = remember { mutableStateOf("") }
     val textComment = remember { mutableStateOf("") }
@@ -30,7 +35,7 @@ fun OrderScreen(modifier: Modifier = Modifier, onOrderClick: () -> Unit) {
             .padding(horizontal = 26.dp, vertical = 20.dp),
         horizontalAlignment = Alignment.Start
     ) {
-        Order(text = "Оформление заказа", onClick = { })
+        Order(text = "Оформление заказа", onClick = backClick)
 
         Spacer(modifier = Modifier.height(24.dp))
 
@@ -64,10 +69,10 @@ fun OrderScreen(modifier: Modifier = Modifier, onOrderClick: () -> Unit) {
 
         CartButtonStack(
             promoText = "Промокод",
-            onClickPromo = onOrderClick,
+            onClickPromo = {},
             orderText = "1 анализ",
             priceText = "690 ₽",
-            onClickBtn = {},
+            onClickBtn = onOrderClick,
             enabled = true,
             buttonText = "Заказать"
         )
@@ -78,5 +83,8 @@ fun OrderScreen(modifier: Modifier = Modifier, onOrderClick: () -> Unit) {
 @Preview
 @Composable
 private fun OrderScreenPrev() {
-    OrderScreen(onOrderClick = {})
+    OrderScreen(
+        onOrderClick = {},
+        backClick = {}
+    )
 }
