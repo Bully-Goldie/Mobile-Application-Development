@@ -70,3 +70,7 @@ val LocalAppColors = staticCompositionLocalOf {
     )
 }
 //pr07
+
+//pr10
+val TabBarColor = Color(0xFF1A6FEE)
+//pr10
