@@ -3,6 +3,7 @@ package com.example.mobileapplicationdevelopment_zamt
 import Screen.SignAppScreen
 import Screen_pr09.OrderScreen
 import Screen_pr09.paymentScreen
+import Screen_pr10.TabBarScreen
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -47,8 +48,16 @@ class MainActivity : ComponentActivity() {
 
                 composable("payment_success") {
                     paymentScreen(
-                        homeBack = {},
+                        homeBack = {
+                            navController.navigate("home")
+                        },
                         checkOrder = {}
+                    )
+                }
+                composable("home") {
+                    TabBarScreen(
+                        items = listOf("Анализы", "Результаты", "Поддержка", "Профиль"),
+                        icons = listOf(R.drawable.analizy, R.drawable.results, R.drawable.help, R.drawable.user)
                     )
                 }
             }

@@ -5,11 +5,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.MailOutline
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBarItem
@@ -23,16 +18,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.mobileapplicationdevelopment_zamt.ui.theme.TabBarColor
+import com.example.mobileapplicationdevelopment_zamt.R
+import com.example.mobileapplicationdevelopment_zamt.ui.theme.TabBarColorFalse
+import com.example.mobileapplicationdevelopment_zamt.ui.theme.TabBarColorTrue
 
 @Composable
-fun TabBarScreen(items: List<String>, icons: List<ImageVector>) {
+fun TabBarScreen(items: List<String>, icons: List<Int>) {
     var selectedItem by remember { mutableIntStateOf(0) }
 
     Scaffold(
@@ -48,7 +45,10 @@ fun TabBarScreen(items: List<String>, icons: List<ImageVector>) {
                     items.forEachIndexed { index, item ->
                         val isSelected = selectedItem == index
                         NavigationBarItem(
-                            icon = { Icon(icons[index], contentDescription = item) },
+                            icon = { Icon(
+                                painter = painterResource(id = icons[index]),
+                                contentDescription = item
+                            )  },
                             label = { Text(
                                 text = item,
                                 fontSize = 12.sp,
@@ -60,8 +60,10 @@ fun TabBarScreen(items: List<String>, icons: List<ImageVector>) {
                             selected = isSelected,
                             onClick = { selectedItem = index },
                             colors = NavigationBarItemDefaults.colors(
-                                selectedIconColor = TabBarColor,
-                                selectedTextColor = TabBarColor,
+                                selectedIconColor = TabBarColorTrue,
+                                selectedTextColor = TabBarColorTrue,
+                                unselectedTextColor = TabBarColorFalse,
+                                unselectedIconColor = TabBarColorFalse,
                                 indicatorColor = Color.Transparent
                             )
                         )
@@ -81,5 +83,5 @@ fun TabBarScreen(items: List<String>, icons: List<ImageVector>) {
 private fun TabBarScreenPrev() {
     TabBarScreen(
         items = listOf("Анализы", "Результаты", "Поддержка", "Профиль"),
-        icons = listOf(Icons.Filled.Home, Icons.Filled.Search, Icons.Filled.MailOutline, Icons.Filled.Person))
+        icons = listOf(R.drawable.analizy, R.drawable.results, R.drawable.help, R.drawable.user))
 }
