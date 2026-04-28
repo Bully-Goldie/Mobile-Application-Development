@@ -1,5 +1,6 @@
 package Components_pr04
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -9,11 +10,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.mobileapplicationdevelopment_zamt.R
 import com.example.mobileapplicationdevelopment_zamt.ui.theme.colorBtn
 import com.example.mobileapplicationdevelopment_zamt.ui.theme.notColorBtn
 
@@ -25,19 +29,19 @@ fun PrimaryButton(modifier: Modifier = Modifier, onClick: () -> Unit, text: Stri
         disabledContainerColor = notColorBtn,
         disabledContentColor = Color.White
     ),
+        contentPadding = PaddingValues(1.dp),
         modifier = modifier
-            .width(335.dp)
-            .height(56.dp),
+            .width(96.dp)
+            .height(40.dp),
         enabled = enabled,
-        shape = RoundedCornerShape(10.dp),
+        shape = RoundedCornerShape(10.dp)
     ) {
         Text(
             text = text,
-            fontSize = 17.sp,
-            fontWeight = FontWeight.W600,
+            fontSize = 14.sp,
+            fontFamily = FontFamily(Font(R.font.nunito_semibold, FontWeight.SemiBold)),
             letterSpacing = 0.sp,
-            lineHeight = 24.sp,
-            textAlign = TextAlign.Center
+            lineHeight = 20.sp
         )
     }
 }
@@ -45,5 +49,5 @@ fun PrimaryButton(modifier: Modifier = Modifier, onClick: () -> Unit, text: Stri
 @Preview
 @Composable
 private fun PrimaryButtonPreview() {
-    PrimaryButton(onClick = {}, text = "Кнопка", enabled = true)
+    PrimaryButton(onClick = {}, text = "Добавить", enabled = true)
 }

@@ -29,7 +29,10 @@ import com.example.mobileapplicationdevelopment_zamt.ui.theme.TabBarColorFalse
 import com.example.mobileapplicationdevelopment_zamt.ui.theme.TabBarColorTrue
 
 @Composable
-fun TabBarScreen(items: List<String>, icons: List<Int>) {
+fun TabBarScreen(
+    items: List<String>,
+    icons: List<Int>
+) {
     var selectedItem by remember { mutableIntStateOf(0) }
 
     Scaffold(
@@ -83,5 +86,7 @@ fun TabBarScreen(items: List<String>, icons: List<Int>) {
 private fun TabBarScreenPrev() {
     TabBarScreen(
         items = listOf("Анализы", "Результаты", "Поддержка", "Профиль"),
-        icons = listOf(R.drawable.analizy, R.drawable.results, R.drawable.help, R.drawable.user))
+        icons = listOf(R.drawable.analizy, R.drawable.results, R.drawable.help, R.drawable.user),
+
+    )
 }
