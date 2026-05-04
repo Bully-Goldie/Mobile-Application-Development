@@ -3,6 +3,7 @@ package Screen_pr10
 import Components_pr11.AnalysisItem
 import Components_pr11.Cards
 import Components_pr11.Categories
+import Screen_pr11.LazyColumnCards
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -42,14 +43,12 @@ import com.example.mobileapplicationdevelopment_zamt.R
 import com.example.mobileapplicationdevelopment_zamt.ui.theme.TabBarColorFalse
 import com.example.mobileapplicationdevelopment_zamt.ui.theme.TabBarColorTrue
 
-private val vertical = Arrangement.spacedBy(16.dp)
-
 @Composable
 fun TabBarScreen(
     items: List<String>,
     icons: List<Int>,
-    itemsListCategory: List<String>,
-    analysisList: List<AnalysisItem>
+    category: List<String>,
+    analysis: List<AnalysisItem>
 ) {
     var selectedItem by remember { mutableIntStateOf(0) }
 
@@ -100,55 +99,7 @@ fun TabBarScreen(
         Box(modifier = Modifier.padding(innerPadding)) {
             when (selectedItem) {
                 0 -> {
-                    val itemsListCategory = itemsListCategory
-                    val analysisList = analysisList
-
-                    LazyColumn(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(Color.White),
-                        verticalArrangement = Arrangement.spacedBy(16.dp),
-                        contentPadding = PaddingValues(bottom = 20.dp)
-                    ) {
-                        item {
-                            LazyRow(
-                                modifier = Modifier.fillMaxWidth(),
-                                contentPadding = PaddingValues(horizontal = 20.dp, vertical = 24.dp),
-                                horizontalArrangement = Arrangement.spacedBy(16.dp)
-                            ) {
-                                items(itemsListCategory) { item ->
-                                    Categories(
-                                        onClickBtn = {},
-                                        textBtn = item,
-                                        widthBtn = 131,
-                                        heightBtn = 48
-                                    )
-                                }
-                            }
-                        }
-                        items(analysisList, key = { it.id }) { item ->
-                            Box(
-                                modifier = Modifier
-                                    .padding(horizontal = 30.dp)
-                                    .dropShadow(
-                                        shape = RoundedCornerShape(20.dp),
-                                        shadow = Shadow(
-                                            radius = 20.dp,
-                                            spread = 0.dp,
-                                            color = Color(0x99E4E8F5),
-                                            offset = DpOffset(0.dp, 0.dp)
-                                        )
-                                    )
-                            ) {
-                                Cards(
-                                    name = item.name,
-                                    day = item.day,
-                                    price = item.price,
-                                    onClick = { }
-                                )
-                            }
-                        }
-                    }
+                    LazyColumnCards(itemsListCategory = category, analysisList = analysis)
                 }
                 else -> {
                     Text(
@@ -167,11 +118,13 @@ private fun TabBarScreenPrev() {
     TabBarScreen(
         items = listOf("Анализы", "Результаты", "Поддержка", "Профиль"),
         icons = listOf(R.drawable.analizy, R.drawable.results, R.drawable.help, R.drawable.user),
-        itemsListCategory = listOf("Популярные", "Covid", "Комплексные"),
-        analysisList = listOf(
+        category = listOf("Популярные", "Covid", "Комплексные"),
+        analysis = listOf(
             AnalysisItem(1, "ПЦР-тест на определение РНК коронавируса стандартный", 2,1800),
             AnalysisItem(2, "Клинический анализ крови с лейкоцитарной формулой", 1, 690),
             AnalysisItem(3, "Биохимический анализ крови, базовый", 1, 2440),
             AnalysisItem(4, "Биохимический анализ крови, базовый", 1, 2440),
-            AnalysisItem(5, "СОЭ (венозная кровь)", 1, 240)))
+            AnalysisItem(5, "СОЭ (венозная кровь)", 1, 240)
+        )
+    )
 }

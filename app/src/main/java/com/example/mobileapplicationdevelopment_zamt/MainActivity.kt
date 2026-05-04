@@ -59,14 +59,13 @@ class MainActivity : ComponentActivity() {
                     TabBarScreen(
                         items = listOf("Анализы", "Результаты", "Поддержка", "Профиль"),
                         icons = listOf(R.drawable.analizy, R.drawable.results, R.drawable.help, R.drawable.user),
-                        itemsListCategory = listOf("Популярные", "Covid", "Комплексные"),
-                        analysisList = listOf(
+                        category = listOf("Популярные", "Covid", "Комплексные"),
+                        analysis = listOf(
                             AnalysisItem(1, "ПЦР-тест на определение РНК коронавируса стандартный", 2,1800),
                             AnalysisItem(2, "Клинический анализ крови с лейкоцитарной формулой", 1, 690),
                             AnalysisItem(3, "Биохимический анализ крови, базовый", 1, 2440),
                             AnalysisItem(4, "Биохимический анализ крови, базовый", 1, 2440),
-                            AnalysisItem(5, "СОЭ (венозная кровь)", 1, 240))
-                    )
+                            AnalysisItem(5, "СОЭ (венозная кровь)", 1, 240)))
                 }
             }
         }
