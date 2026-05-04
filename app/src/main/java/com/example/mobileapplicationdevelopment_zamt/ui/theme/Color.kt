@@ -75,3 +75,6 @@ val LocalAppColors = staticCompositionLocalOf {
 val TabBarColorTrue = Color(0xFF1A6FEE)
 val TabBarColorFalse = Color(0xFFB8C1CC)
 //pr10
+//pr11
+val bag = Color(0xFFE4E8F5)
+//pr11
