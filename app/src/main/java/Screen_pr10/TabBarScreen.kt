@@ -101,7 +101,7 @@ fun TabBarScreen(
         Box(modifier = Modifier.padding(innerPadding)) {
             when (selectedItem) {
                 0 -> {
-                    LazyColumnCards(itemsListCategory = category, analysisList = analysis)
+                    LazyColumnCards()
                 }
                 else -> {
                     Text(

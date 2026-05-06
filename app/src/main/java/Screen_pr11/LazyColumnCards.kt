@@ -9,6 +9,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
@@ -21,10 +22,18 @@ fun LazyColumnCards(
 
 
     Column(
-        modifier = Modifier.fillMaxSize().background(Color.White)
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
     ) {
         ListCategory(itemsListCategory = itemsListCategory)
 
         ListCards(analysisList = analysisList)
     }
+}
+
+@Preview
+@Composable
+private fun LazyColumnCardsPrev() {
+    LazyColumnCards()
 }

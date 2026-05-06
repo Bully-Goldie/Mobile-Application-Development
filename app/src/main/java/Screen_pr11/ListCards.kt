@@ -1,6 +1,7 @@
 package Screen_pr11
 
 import Components_pr11.AnalysisItem
+import Components_pr11.analysisGet
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -29,4 +30,10 @@ fun ListCards(modifier: Modifier = Modifier,analysisList: List<AnalysisItem>) {
             ListCards(item = item)
         }
     }
+}
+
+@Preview
+@Composable
+private fun ListCardsPrev() {
+    ListCards(analysisList = analysisGet())
 }
